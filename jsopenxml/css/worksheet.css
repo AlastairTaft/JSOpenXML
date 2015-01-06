@@ -1,0 +1,29 @@
+.jsopenxml-worksheet
+{
+    overflow: hidden;
+    position: relative;
+}
+
+.jsopenxml-worksheet .cell {
+    display: inline-block;
+    overflow: hidden;
+    position: absolute;
+    padding: 1px 2px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.jsopenxml-worksheet.gridLines .cell {
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+
+
+.jsopenxml-worksheet .split-bar.y {
+    width: 100%;
+    background-color: black;
+    height: 2px;
+    position:absolute;
+    left: 0;
+}
