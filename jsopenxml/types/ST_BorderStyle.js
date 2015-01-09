@@ -1,4 +1,4 @@
-﻿/**
+/**
  * @fileoverview The line style of a border in a cell.
  */
 
@@ -12,7 +12,7 @@ jsopenxml.types.ST_BorderStyle = {
     dashDotDot: "dashDotDot",
     dashed: "dashed",
     dotted: "dotted",
-    double: "double",
+    "double": "double",
     hair: "hair",
     medium: "medium",
     mediumDashDot: "mediumDashDot",

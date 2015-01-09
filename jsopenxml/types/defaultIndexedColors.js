@@ -89,5 +89,5 @@ jsopenxml.types.defaultIndexedColors = {
     // System foreground
     64: "00eeece1",
     // System background
-    65: "00cccccc",
+    65: "00cccccc"
 };

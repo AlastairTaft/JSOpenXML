@@ -196,7 +196,7 @@ jsopenxml.ui.Cell.prototype.applyBorder = function (border) {
             case jsopenxml.types.ST_BorderStyle.mediumDashDot:
             case jsopenxml.types.ST_BorderStyle.mediumDashDotDot:
                 this.element_.style.borderLeftStyle = "dotted"; break;
-            case jsopenxml.types.ST_BorderStyle.double:
+            case jsopenxml.types.ST_BorderStyle["double"]:
                 this.element_.style.borderLeftStyle = "double"; break;
             case jsopenxml.types.ST_BorderStyle.hair:
             case jsopenxml.types.ST_BorderStyle.medium:
@@ -234,7 +234,7 @@ jsopenxml.ui.Cell.prototype.applyBorder = function (border) {
             case jsopenxml.types.ST_BorderStyle.mediumDashDot:
             case jsopenxml.types.ST_BorderStyle.mediumDashDotDot:
                 this.element_.style.borderRightStyle = "dotted"; break;
-            case jsopenxml.types.ST_BorderStyle.double:
+            case jsopenxml.types.ST_BorderStyle["double"]:
                 this.element_.style.borderRightStyle = "double"; break;
             case jsopenxml.types.ST_BorderStyle.hair:
             case jsopenxml.types.ST_BorderStyle.medium:
@@ -268,7 +268,7 @@ jsopenxml.ui.Cell.prototype.applyBorder = function (border) {
             case jsopenxml.types.ST_BorderStyle.mediumDashDot:
             case jsopenxml.types.ST_BorderStyle.mediumDashDotDot:
                 this.element_.style.borderTopStyle = "dotted"; break;
-            case jsopenxml.types.ST_BorderStyle.double:
+            case jsopenxml.types.ST_BorderStyle["double"]:
                 this.element_.style.borderTopStyle = "double"; break;
             case jsopenxml.types.ST_BorderStyle.hair:
             case jsopenxml.types.ST_BorderStyle.medium:
@@ -306,7 +306,7 @@ jsopenxml.ui.Cell.prototype.applyBorder = function (border) {
             case jsopenxml.types.ST_BorderStyle.mediumDashDot: 
             case jsopenxml.types.ST_BorderStyle.mediumDashDotDot: 
                 this.element_.style.borderBottomStyle = "dotted"; break;
-            case jsopenxml.types.ST_BorderStyle.double: 
+            case jsopenxml.types.ST_BorderStyle["double"]: 
                 this.element_.style.borderBottomStyle = "double"; break;
             case jsopenxml.types.ST_BorderStyle.hair: 
             case jsopenxml.types.ST_BorderStyle.medium: 

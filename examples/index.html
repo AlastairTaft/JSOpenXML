@@ -1,0 +1,101 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Open File Example</title>
+  
+	<script src="../jsopenxml.js" type="text/javascript"></script>
+	<!--<script src="http://localhost:9810/compile?id=closure&mode=RAW" type="text/javascript"></script>-->
+	<link rel="stylesheet" href="../jsopenxml/css/spreadsheet.css" />
+    <link rel="stylesheet" href="../jsopenxml/css/worksheet.css" />
+    <link rel="stylesheet" href="../jsopenxml/css/slider.css" />
+    <link rel="stylesheet" href="../jsopenxml/css/tabbar.css" />
+    <link rel="stylesheet" href="../jsopenxml/css/tab.css" />
+</head>
+
+<body>
+    
+<p>Click the select file button and choose the EXCEL file you wish to display.</p>
+
+<input type="file" id="file" name="file" />
+
+<script type="text/javascript" src="jszip.js"></script>
+<script type="text/javascript" src="jszip-load.js"></script>
+<script type="text/javascript" src="jszip-inflate.js"></script>
+
+
+<script type="text/javascript">
+    (function () {
+        if (!window.FileReader || !window.ArrayBuffer) {
+            alert("Your browser is not modern enough to support this demo.");
+            return;
+        }
+
+        goog.events.listen(document.getElementById('file'), "change", function (e) {
+
+            var f = e.target.files[0];
+
+            if (f.type !== "application/zip") {
+                // Not a zip file
+            }
+            var reader = new FileReader();
+
+            // Closure to capture the file information.
+            reader.onload = function (e) {
+
+                // read the content of the file with JSZip
+                var zip = new JSZip(e.target.result);
+
+                var openXmlDocumentData = new jsopenxml.types.OpenXmlDocumentData();
+
+                for (var key in zip.files) {
+                    if (!zip.files.hasOwnProperty(key)) continue;
+                    var doc;
+
+                    try {
+                        var xml = zip.files[key].asText(), doc;
+                        if (goog.userAgent.IE || !!window.MSStream) {
+                            doc = new ActiveXObject('Msxml2.DOMDocument.6.0');
+                            doc.loadXML(xml);
+                            doc.setProperty("SelectionLanguage", "XPath");
+                            //this.doc_.childNodes[1].selectNodes(".//RISKDETAILS")
+                        } else {
+                            doc = goog.dom.xml.loadXml(xml);
+                        }
+
+                        openXmlDocumentData[key] = doc;
+                    } catch (e) { 
+						console.error(e);
+					};
+
+                };
+
+                var openXmlDocument = new jsopenxml.types.OpenXmlSpreadsheet(openXmlDocumentData);
+                loadOpenXmlDocument(openXmlDocument);
+                
+
+            }
+            // read the file !
+            // readAsArrayBuffer and readAsBinaryString both produce valid content for JSZip.
+            reader.readAsArrayBuffer(f);
+            // reader.readAsBinaryString(f);
+
+                
+            // Just load the first file for noe
+               
+
+        });
+    })();
+
+
+    var loadOpenXmlDocument = function (openXmlDocument) {
+
+        var viewer = new jsopenxml.ui.Spreadsheet(openXmlDocument);
+        viewer.render(document.getElementById('spreadsheet-container'));
+    }
+</script>
+
+<div id="spreadsheet-container" style="border: 1px solid rgb(126, 126, 126);">
+</div>
+</body>
+</html>

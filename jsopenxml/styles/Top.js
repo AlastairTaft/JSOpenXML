@@ -4,6 +4,7 @@
  */
 
 goog.provide('jsopenxml.styles.Top');
+goog.require('jsopenxml.styles.Bottom');
 
 /**
  * @constructor

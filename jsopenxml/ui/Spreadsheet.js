@@ -20,6 +20,7 @@ goog.require('jsopenxml.ui.Worksheet');
 goog.require('goog.ui.TabBar');
 goog.require('goog.ui.Slider');
 goog.require('goog.math.Coordinate');
+goog.require('goog.dom.classes');
 
 /**
  * @param {jsopenxml.types.OpenXmlDocument} openXmlDocument
