@@ -1,3 +1,6 @@
+# ⚠️ Archived
+This repo is not maintained.
+
 JSOpenXML
 =========
 
